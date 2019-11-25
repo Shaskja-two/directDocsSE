@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+            <meta charset="UTF-8">
+
+            <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+            <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        
+            <title>Direct Docs</title>
+        
+            <link rel="stylesheet" type="text/css" href = "CSS_Sheets/dataBase.css"/>
+    </head>
+    <body>
+        <br>
+        <center>
+            <div class = "dataBase">
+                <h1> Suppier Panel </h1>
+                <table>
+                    <tr>
+                        <th> Company Name </th>
+                        <th> Main Contact </th>
+                        <th> Phone </th>
+                        <th> Email </th>
+                        <th> # of Invoices </th>
+                        <th> YTD Income </th>
+                    </tr>
+                    <tr>
+                       <?php 
+                        // You will have to updaate these values with the way to enter the server
+                        $conn = new mysqli($servername, $username, $password);
+                        if ($conn->connect_error) { 
+                            die("Connection failed: " .$conn->connect_error);
+                        }
+                        
+                        // Pull all the rows that currently exist, and pass write them as part of the table in html
+                        $sql = "SELECT companyName, mainContact, contactPhone, contactEmail, contactInvoices, contactYTD from database";
+                        $result = $conn-> query($sql);
+                        if ($result-> num_rows > 0) {
+                            while($row = $result -> fetch_assoc()) {
+                                echo "<tr><td>".$row["companyName"] "</td><td>".$row["mainContact"]"</td><td">".$row["contactPhone"]"</td><td>"
+                                    .$row["contactEmail"]"</td><td>".$row["contactInvoices"]"</td><td>".$row["contactYTD"]"</td></tr>";
+                            }
+                            echo "</table>";
+                        } 
+                        else {
+                            echo "0 Results";
+                        }
+                        $conn-> close();
+                        ?>
+                    </tr>
+                </table>
+            </div>
+        </center>
+    </body>
+</html>

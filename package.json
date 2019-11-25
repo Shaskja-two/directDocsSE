@@ -1,0 +1,19 @@
+{
+  "name": "directdocs",
+  "version": "0.0.1",
+  "description": "A documentation program for Software Engineering",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Document",
+    "School"
+  ],
+  "author": "Fernando Batista",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.1.1"
+  }
+}

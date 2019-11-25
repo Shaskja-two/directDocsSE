@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!-- 
+  Purpose of the Index.html is to act as an entrypoint into the system, 
+  there will only be the background and a login form that has a prompt to enter the main menu.
+
+  This prompt will have to pass along the username once the user is verified to every page.
+-->
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+    <title>Direct Docs</title>
+
+    <link rel="stylesheet" type="text/css" href = "CSS_Sheets/mainStyle.css"/>
+    <script src="Javascripts/loginForm.js"></script>
+  </head>
+
+  <body>
+      <!-- You will have to change the action to whatever funtion to go to mainMenu.html -->
+    <center><br>
+    <form class = "loginForm" action ="mainMenu.html">
+      
+      <div class="logoContainer">
+        <img src="images/logo.png" alt="DirectDocs Logo" class="directLogo"> 
+      </div>
+    
+      <div>
+
+        <label for="userName"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="userName" required>
+        <label for="passWord"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="passWord" required>
+    
+        <button type="submit">Login</button>
+        <p></p>
+      </div>
+    </form>
+  </center>
+  </body>
+</html>
